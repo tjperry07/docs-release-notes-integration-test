@@ -63,6 +63,9 @@ const config = {
   [
     {
       src: 'js/releasenotes.js', async: true, defer: true
+    },
+    {
+      src: 'js/noticeable.js', async: true, defer: true
     }
   ],
   themeConfig:
@@ -82,6 +85,11 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Tutorial',
+          },
+          {
+            label: 'Noticeable',
+            position: 'left',
+            to: '/noticeable'
           },
           {
             type: 'html',
