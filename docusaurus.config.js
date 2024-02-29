@@ -64,9 +64,9 @@ const config = {
     {
       src: 'js/releasenotes.js', async: true, defer: true
     },
-    {
-      src: 'js/noticeable.js', async: true, defer: true
-    }
+    // {
+    //   src: 'js/noticeable.js', async: true, defer: true
+    // }
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
