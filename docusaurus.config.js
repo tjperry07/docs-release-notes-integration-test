@@ -59,15 +59,6 @@ const config = {
       }),
     ],
   ],
-  scripts: 
-  [
-    {
-      src: 'js/releasenotes.js', async: true, defer: true
-    },
-    // {
-    //   src: 'js/noticeable.js', async: true, defer: true
-    // }
-  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -85,11 +76,6 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Tutorial',
-          },
-          {
-            label: 'Noticeable',
-            position: 'left',
-            to: '/noticeable'
           },
           {
             type: 'html',
@@ -155,6 +141,14 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
+    headTags:[
+      {
+        tagName: 'script',
+        attributes:{
+          src: '/js/releasenotes.js'
+        }
+      }
+    ],
 };
 
 export default config;
