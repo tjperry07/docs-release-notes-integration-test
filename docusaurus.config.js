@@ -83,6 +83,12 @@ const config = {
             position: 'left',
             className: 'rn-badge'
           },
+          {
+            type: 'html',
+            value: 'Noticeable',
+            position: 'left',
+            className: 'noticeable-widget'
+          },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/facebook/docusaurus',
@@ -146,6 +152,20 @@ const config = {
         tagName: 'script',
         attributes:{
           src: '/js/releasenotes.js'
+        }
+      },
+
+      {
+        tagName: 'script',
+        attributes:{
+          src: '/js/noticeable.js'
+        }
+      },
+
+      {
+        tagName: 'script',
+        attributes:{
+          src: '/js/noticeableWidget.js'
         }
       }
     ],
