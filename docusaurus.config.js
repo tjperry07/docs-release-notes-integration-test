@@ -33,7 +33,9 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  plugins:[
+    require.resolve('./plugins/webpackPolyfillPlugin'),
+  ],
   presets: [
     [
       'classic',
@@ -59,9 +61,16 @@ const config = {
       }),
     ],
   ],
+  themes: ['docusaurus-theme-search-typesense'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata:[
+        {
+          name: 'docsearch:{$NAME}_tag',
+          content: '{$CONTENT}'
+        }
+      ],
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
@@ -76,12 +85,6 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Tutorial',
-          },
-          {
-            type: 'html',
-            value: 'ReleaseNotes',
-            position: 'left',
-            className: 'rn-badge'
           },
           {
             type: 'html',
@@ -146,15 +149,31 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
+      typesense:{
+        typesenseCollectionName: 'Docs Site Test Search',
+        typesenseServerConfig:{
+          nodes:[
+            {
+              host: '4paso9ug6hxkelrzp-1.a1.typesense.net',
+              port: 443,
+              protocol: 'https'
+            },
+            {
+              host: '4paso9ug6hxkelrzp-2.a1.typesense.net',
+              port: 443,
+              protocol: 'https'
+            },
+            {
+              host: '4paso9ug6hxkelrzp-3.a1.typesense.net',
+              port: 443,
+              protocol: 'https'
+            }
+          ],
+          apiKey: 'yGMvcWMag9Dq1p88yoFheFSKruG0lLT0'
+        },
+      },
     }),
     headTags:[
-      {
-        tagName: 'script',
-        attributes:{
-          src: '/js/releasenotes.js'
-        }
-      },
-
       {
         tagName: 'script',
         attributes:{
