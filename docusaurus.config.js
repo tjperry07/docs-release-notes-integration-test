@@ -98,16 +98,6 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
-          { 
-            to: '/stoplightTest', 
-            label: 'Stoplight API', 
-            position: 'left' 
-          },
-          { 
-            to: '/rapidAPI', 
-            label: 'RapidAPI', 
-            position: 'left' 
-          },
         ],
       },
       footer: {
