@@ -96,6 +96,11 @@ const config = {
             to: '/releasenotes',
             label: 'Release Notes',
             position: 'left',
+          },
+          {
+            type: 'html',
+            value: 'Bounce',
+            position: 'right',
             className: 'noticeable-widget'
           },
           {
