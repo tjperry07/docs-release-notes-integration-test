@@ -1,3 +1,6 @@
+# Packages Added
+- https://github.com/cloud-annotations/docusaurus-openapi
+
 # Website
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.

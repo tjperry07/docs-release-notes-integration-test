@@ -38,9 +38,14 @@ const config = {
   ],
   presets: [
     [
-      'classic',
+      'docusaurus-preset-openapi',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        api:{
+          id: 'jobs',
+          path: 'static/openapi/jobs',
+          routeBasePath: '/api'
+        },
         docs: {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
@@ -60,6 +65,7 @@ const config = {
         },
       }),
     ],
+
   ],
   themes: ['docusaurus-theme-search-typesense'],
   themeConfig:
@@ -87,10 +93,15 @@ const config = {
             label: 'Tutorial',
           },
           {
-            type: 'html',
-            value: 'Noticeable',
+            to: '/releasenotes',
+            label: 'Release Notes',
             position: 'left',
             className: 'noticeable-widget'
+          },
+          {
+            to: '/api',
+            label: 'Jobs API',
+            postion: 'left'
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
