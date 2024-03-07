@@ -1,3 +1,12 @@
+# Testing the API
+CORS is currently not allowed on my browser (Chrome). We'll have to configure it on the server(coalesce) if we launch. 
+Use this plugin https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
+Then toggle CORs on.
+
+Now you can make API requests!
+
+![CORS](cors.png)
+
 # Packages Added
 - https://github.com/cloud-annotations/docusaurus-openapi
 

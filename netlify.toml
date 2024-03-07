@@ -1,3 +1,10 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://app.coalescesoftware.io/scheduler/:splat"
+  status = 200
+  force = true
+
+
 [[headers]]
   for = "/*"
   [headers.values]
