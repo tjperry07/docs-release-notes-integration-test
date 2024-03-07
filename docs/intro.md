@@ -1,4 +1,5 @@
 ---
+title: Welcome to Coalesce
 sidebar_position: 1
 ---
 
