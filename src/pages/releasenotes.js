@@ -7,6 +7,7 @@ export default function Hello() {
     
     }, []); // The empty array means this effect runs once after the initial render
 
+
   return (
     <Layout title="Hello" description="Hello React Page">
       <div id="noticeable-newspage-embed"></div>
