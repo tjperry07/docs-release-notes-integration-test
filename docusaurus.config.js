@@ -38,14 +38,9 @@ const config = {
   ],
   presets: [
     [
-      'docusaurus-preset-openapi',
+      'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        api:{
-          id: 'jobs',
-          path: 'static/openapi/jobs',
-          routeBasePath: '/api'
-        },
         docs: {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
@@ -102,11 +97,6 @@ const config = {
             value: 'Bounce',
             position: 'right',
             className: 'noticeable-widget'
-          },
-          {
-            to: '/api',
-            label: 'Jobs API',
-            postion: 'left'
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
