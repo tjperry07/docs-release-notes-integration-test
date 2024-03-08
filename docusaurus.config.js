@@ -33,9 +33,21 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  plugins:[
-    require.resolve('./plugins/webpackPolyfillPlugin'),
+  plugins: [
+    [
+      '@scalar/docusaurus',
+      {
+        label: 'Scalar',
+        route: '/scalar',
+        configuration: {
+          spec: {
+            url: 'https://petstore3.swagger.io/api/v3/openapi.json',
+          },
+        },
+      }
+    ],
   ],
+  
   presets: [
     [
       'classic',

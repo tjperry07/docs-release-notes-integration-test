@@ -16,8 +16,8 @@
   "dependencies": {
     "@docusaurus/core": "3.1.1",
     "@docusaurus/preset-classic": "3.1.1",
-    "@docusaurus/theme-search-algolia": "^3.1.1",
     "@mdx-js/react": "^3.0.0",
+    "@scalar/docusaurus": "^0.0.2",
     "clsx": "^2.0.0",
     "docusaurus-theme-search-typesense": "^0.16.0-0",
     "node-polyfill-webpack-plugin": "^3.0.0",
