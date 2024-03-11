@@ -33,9 +33,22 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  plugins:[
-    require.resolve('./plugins/webpackPolyfillPlugin'),
+  plugins: [
+    [
+      '@scalar/docusaurus',
+      {
+        label: 'Scalar',
+        route: '/scalar',
+        configuration: {
+          spec: {
+            url: 'https://raw.githubusercontent.com/tjperry07/coa_api_test/main/jobs_api_add_runStatus_runType_03_04_2024.json',
+          },
+        },
+      }
+    ],
+
   ],
+  
   presets: [
     [
       'classic',
@@ -186,13 +199,6 @@ const config = {
           src: '/js/noticeable.js'
         }
       },
-
-      {
-        tagName: 'script',
-        attributes:{
-          src: '/js/noticeableWidget.js'
-        }
-      }
     ],
 };
 
