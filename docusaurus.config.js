@@ -41,11 +41,12 @@ const config = {
         route: '/scalar',
         configuration: {
           spec: {
-            url: 'https://petstore3.swagger.io/api/v3/openapi.json',
+            url: 'https://raw.githubusercontent.com/tjperry07/coa_api_test/main/jobs_api_add_runStatus_runType_03_04_2024.json',
           },
         },
       }
     ],
+
   ],
   
   presets: [
@@ -198,13 +199,6 @@ const config = {
           src: '/js/noticeable.js'
         }
       },
-
-      {
-        tagName: 'script',
-        attributes:{
-          src: '/js/noticeableWidget.js'
-        }
-      }
     ],
 };
 
