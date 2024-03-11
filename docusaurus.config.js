@@ -34,26 +34,18 @@ const config = {
     locales: ['en'],
   },
   plugins: [
-    [
-      '@scalar/docusaurus',
-      {
-        label: 'Scalar',
-        route: '/scalar',
-        configuration: {
-          spec: {
-            url: 'https://raw.githubusercontent.com/tjperry07/coa_api_test/main/jobs_api_add_runStatus_runType_03_04_2024.json',
-          },
-        },
-      }
-    ],
 
   ],
   
   presets: [
     [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
+      'docusaurus-preset-openapi',
+      /** @type {import('docusaurus-preset-openapi').Options} */
       ({
+        api:{
+          path: './static/api/jobs.json',
+          routeBasePath: "/api"
+        },
         docs: {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
@@ -99,6 +91,11 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Docs',
+          },
+          {
+            to: '/api',
+            label: 'Jobs API',
+            position: 'left'
           },
           {
             to: '/releasenotes',
