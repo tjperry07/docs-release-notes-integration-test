@@ -1,0 +1,709 @@
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "afors0r27nndp"
+  },
+  "info": {
+    "title": "Jobs_03_01_2024_01",
+    "version": "6.2"
+  },
+  "servers": [
+    {
+      "url": "https://app.coalescesoftware.io",
+      "description": "US primary"
+    },
+    {
+      "url": "https://app.centralus.azure.coalescesoftware.io",
+      "description": "US primary Azure"
+    },
+    {
+      "url": "https://app.eu.coalescesoftware.io",
+      "description": "Europe primary"
+    },
+    {
+      "url": "https://app.australia-southeast1.gcp.coalescesoftware.io",
+      "description": "Australia primary"
+    },
+    {
+      "url": "https://app.us-east-1.aws.coalescesoftware.io",
+      "description": "US AWS US East"
+    },
+    {
+      "url": "https://app.us-east-1.aws.privatelink.coalescesoftware.io",
+      "description": "US AWS US East with PrivateLink"
+    },
+    {
+      "url": "https://app.us-west-2.aws.coalescesoftware.io",
+      "description": "US AWS US West"
+    },
+    {
+      "url": "https://app.us-west-2.aws.privatelink.coalescesoftware.io",
+      "description": "US AWS US West with PrivateLink"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "Bearer Token": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "RunStatus": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "runStatus": "completed",
+            "runType": "deploy",
+            "runLink": "https://app.coalescesoftware.io/runs/1"
+          }
+        },
+        "examples": [
+          {
+            "runStatus": null,
+            "runType": null,
+            "runLink": "https://app.coalescesoftware.io/runs/1"
+          }
+        ],
+        "properties": {
+          "runStatus": {
+            "enum": [
+              "canceled",
+              "completed",
+              "failed",
+              "rendering",
+              "running",
+              "waitingToRun",
+              "initializing"
+            ]
+          }
+        },
+        "x-stoplight": {
+          "id": "avxp650fodvxd"
+        }
+      },
+      "RunType": {
+        "title": "RunType",
+        "x-stoplight": {
+          "id": "mk4um66qsvhkg"
+        },
+        "type": "object",
+        "properties": {
+          "runType": {
+            "x-stoplight": {
+              "id": "620e7cwxxdhya"
+            },
+            "enum": [
+              "deploy",
+              "refresh"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/scheduler/startRun": {
+      "post": {
+        "summary": "Trigger Job to Run",
+        "tags": [
+          "Jobs"
+        ],
+        "description": "Querying this endpoint will initiate a new run to refresh your data warehouse based on your specified details.",
+        "operationId": "startrun",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "runDetails"
+                ],
+                "properties": {
+                  "runDetails": {
+                    "type": "object",
+                    "description": "Object containing the necessary target details required to successfully start a refresh.",
+                    "required": [
+                      "environmentID"
+                    ],
+                    "properties": {
+                      "environmentID": {
+                        "type": "string",
+                        "description": "The environment being refreshed"
+                      },
+                      "includeNodesSelector": {
+                        "type": "string",
+                        "description": "Nodes included for an ad-hoc job"
+                      },
+                      "excludeNodesSelector": {
+                        "type": "string",
+                        "description": "Nodes excluded for an ad-hoc job."
+                      },
+                      "jobID": {
+                        "type": "string",
+                        "description": "The ID of a job being run."
+                      },
+                      "parallelism": {
+                        "type": "integer",
+                        "description": "Maximum number of parallel nodes to run.",
+                        "default": 16,
+                        "format": "int32"
+                      },
+                      "forceIgnoreWorkspaceStatus": {
+                        "type": "boolean",
+                        "description": "Allows refreshing an environment even if the last deployment on that environment failed. Use with caution as this can put your environment into an even worse state."
+                      }
+                    }
+                  },
+                  "userCredentials": {
+                    "type": "object",
+                    "description": "userCredentials contains connection credentials for connecting to Snowflake. Currently only basic auth (username/password) may be specified. If however, an OAuth connection has been established for the given environment specified in runDetails.environmentID, you may omit userCredentials. In that case, Coalesce will use the OAuth connection to connect with Snowflake.",
+                    "properties": {
+                      "snowflakeUsername": {
+                        "type": "string",
+                        "description": "Snowflake Account Username. Required when snowflakeAuthType is Basic"
+                      },
+                      "snowflakePassword": {
+                        "type": "string",
+                        "description": "Snowflake Account password. Required when snowflakeAuthType is Basic"
+                      },
+                      "snowflakeKeyPairKey": {
+                        "type": "string",
+                        "description": "The PEM-encoded private key to use when authenticating to Snowflake. Required when using the KeyPair authentication type. Newlines must be encoded as \"\\n\" within the request."
+                      },
+                      "snowflakeKeyPairPass": {
+                        "type": "string",
+                        "description": "The password to use to decrypt the private key. This is only applicable when the authentication type is KeyPair and the private key is encrypted."
+                      },
+                      "snowflakeWarehouse": {
+                        "type": "string",
+                        "description": "Snowflake compute warehouse"
+                      },
+                      "snowflakeRole": {
+                        "type": "string",
+                        "description": "Snowflake user role"
+                      },
+                      "snowflakeAuthType": {
+                        "type": "string",
+                        "description": "Options: Basic | KeyPair | OAuth",
+                        "default": "Basic"
+                      }
+                    }
+                  },
+                  "parameters": {
+                    "type": "string",
+                    "description": "Contains parameters to be used in the Refresh",
+                    "format": "json"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n\t\"runCounter\": 1\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "runCounter": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"error\":{\n    \"errorString\":\"400: Error Message\",\n    \"errorDetail\":\"400: Error Message\"\n\t}\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "errorString": {
+                          "type": "string",
+                          "example": "400: Error Message"
+                        },
+                        "errorDetail": {
+                          "type": "string",
+                          "example": "400: Error Message"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"error\":{\n    \"errorString\":\"401: Unable to authenticate, please ensure your token is valid.\",\n    \"errorDetail\":\"401: Unable to authenticate, please ensure your token is valid.\"\n\t}\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "errorString": {
+                          "type": "string",
+                          "example": "401: Unable to authenticate, please ensure your token is valid."
+                        },
+                        "errorDetail": {
+                          "type": "string",
+                          "example": "401: Unable to authenticate, please ensure your token is valid."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-stoplight": {
+          "id": "3yxugt81wz0mq"
+        }
+      }
+    },
+    "/scheduler/runStatus": {
+      "get": {
+        "summary": "Get Job Status",
+        "tags": [
+          "Jobs"
+        ],
+        "description": "Querying this endpoint will allow you to receive updates on the current status of a specific run.",
+        "operationId": "job-status",
+        "parameters": [
+          {
+            "name": "runCounter",
+            "in": "query",
+            "description": "ID of the run to query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "runStatus": "completed",
+                      "runType": "deploy",
+                      "runLink": "https://app.coalescesoftware.io/runs/1"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "runStatus": {
+                      "$ref": "#/components/schemas/RunStatus"
+                    },
+                    "runType": {
+                      "$ref": "#/components/schemas/RunType"
+                    },
+                    "runLink": {
+                      "type": "string",
+                      "example": "https://app.coalescesoftware.io/runs/1"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"error\":{\n    \"errorString\":\"400: Error Message\",\n    \"errorDetail\":\"400: Error Message\"\n\t}\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "errorString": {
+                          "type": "string",
+                          "example": "400: Error Message"
+                        },
+                        "errorDetail": {
+                          "type": "string",
+                          "example": "400: Error Message"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"error\":{\n    \"errorString\":\"401: Unable to authenticate, please ensure your token is valid.\",\n    \"errorDetail\":\"401: Unable to authenticate, please ensure your token is valid.\"\n\t}\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "errorString": {
+                          "type": "string",
+                          "example": "401: Unable to authenticate, please ensure your token is valid."
+                        },
+                        "errorDetail": {
+                          "type": "string",
+                          "example": "401: Unable to authenticate, please ensure your token is valid."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-stoplight": {
+          "id": "pyxrwl9325z26"
+        }
+      }
+    },
+    "/scheduler/rerun": {
+      "post": {
+        "summary": "Trigger Job to Re-Run",
+        "tags": [
+          "Jobs"
+        ],
+        "description": "Querying this endpoint will initiate a new run to refresh your data warehouse based on your specified details.",
+        "operationId": "rerun-failed-refresh-job",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "runDetails",
+                  "userCredentials"
+                ],
+                "properties": {
+                  "runDetails": {
+                    "type": "object",
+                    "description": "Contains the runID to be re-run.",
+                    "required": [
+                      "runID"
+                    ],
+                    "properties": {
+                      "runID": {
+                        "type": "string",
+                        "description": "The number of the run you want to be retried."
+                      },
+                      "forceIgnoreWorkspaceStatus": {
+                        "type": "boolean",
+                        "description": "Allows refreshing an environment even if the last deployment on that environment failed. Use with caution as this can put your environment into an even worse state."
+                      }
+                    }
+                  },
+                  "userCredentials": {
+                    "type": "object",
+                    "description": "userCredentials contains connection credentials for connecting to Snowflake. Currently only basic auth (username/password) may be specified. If however, an OAuth connection has been established for the given environment specified in runDetails.environmentID, you may ommit userCredentials. In that case, Coalesce will use the OAuth connection to connect with Snowflake.",
+                    "properties": {
+                      "snowflakeUsername": {
+                        "type": "string",
+                        "description": "Snowflake Account Username. Required when snowflakeAuthType is Basic"
+                      },
+                      "snowflakePassword": {
+                        "type": "string",
+                        "description": "Snowflake Account password. Required when snowflakeAuthType is Basic"
+                      },
+                      "snowflakeKeyPairKey": {
+                        "type": "string",
+                        "description": "The PEM-encoded private key to use when authenticating to Snowflake. Required when using the KeyPair authentication type. Newlines must be encoded as \"\\n\" within the request."
+                      },
+                      "snowflakeKeyPairPass": {
+                        "type": "string",
+                        "description": "The password to use to decrypt the private key. This is only applicable when the authentication type is KeyPair and the private key is encrypted."
+                      },
+                      "snowflakeWarehouse": {
+                        "type": "string",
+                        "description": "Snowflake compute warehouse"
+                      },
+                      "snowflakeRole": {
+                        "type": "string",
+                        "description": "Snowflake user role"
+                      },
+                      "snowflakeAuthType": {
+                        "type": "string",
+                        "description": "Options: Basic | KeyPair | OAuth",
+                        "default": "Basic"
+                      }
+                    }
+                  },
+                  "parameters": {
+                    "type": "string",
+                    "description": "Contains parameters to be used in the Refresh",
+                    "format": "json"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n\t\"runCounter\": 1\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "runCounter": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"error\":{\n    \"errorString\":\"400: Error Message\",\n    \"errorDetail\":\"400: Error Message\"\n\t}\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "errorString": {
+                          "type": "string",
+                          "example": "400: Error Message"
+                        },
+                        "errorDetail": {
+                          "type": "string",
+                          "example": "400: Error Message"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"error\":{\n    \"errorString\":\"401: Unable to authenticate, please ensure your token is valid.\",\n    \"errorDetail\":\"401: Unable to authenticate, please ensure your token is valid.\"\n\t}\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "errorString": {
+                          "type": "string",
+                          "example": "401: Unable to authenticate, please ensure your token is valid."
+                        },
+                        "errorDetail": {
+                          "type": "string",
+                          "example": "401: Unable to authenticate, please ensure your token is valid."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-stoplight": {
+          "id": "dgygif8zrz0xh"
+        }
+      }
+    },
+    "/scheduler/cancelRun": {
+      "post": {
+        "summary": "Cancel Running Job",
+        "tags": [
+          "Jobs"
+        ],
+        "description": "Querying this endpoint will cancel a currently running job.",
+        "operationId": "cancelrun",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "runID"
+                ],
+                "properties": {
+                  "runID": {
+                    "type": "integer",
+                    "description": "The ID of the run the user would like to cancel.",
+                    "format": "int32"
+                  },
+                  "orgID": {
+                    "type": "string",
+                    "description": "The organization's ID of the run the user would like to cancel."
+                  },
+                  "environmentID": {
+                    "type": "string",
+                    "description": "The environment ID of the run the user would like to cancel."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "204",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": ""
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"error\":{\n    \"errorString\":\"400: Error Message\",\n    \"errorDetail\":\"400: Error Message\"\n\t}\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "errorString": {
+                          "type": "string",
+                          "example": "400: Error Message"
+                        },
+                        "errorDetail": {
+                          "type": "string",
+                          "example": "400: Error Message"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"error\":{\n    \"errorString\":\"401: Unable to authenticate, please ensure your token is valid.\",\n    \"errorDetail\":\"401: Unable to authenticate, please ensure your token is valid.\"\n\t}\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "errorString": {
+                          "type": "string",
+                          "example": "401: Unable to authenticate, please ensure your token is valid."
+                        },
+                        "errorDetail": {
+                          "type": "string",
+                          "example": "401: Unable to authenticate, please ensure your token is valid."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-stoplight": {
+          "id": "mg6danmwovrk3"
+        }
+      }
+    }
+  },
+  "x-readme": {
+    "headers": [],
+    "explorer-enabled": false,
+    "proxy-enabled": false,
+    "samples-enabled": true
+  },
+  "security": [
+    {
+      "Bearer Token": []
+    }
+  ]
+}

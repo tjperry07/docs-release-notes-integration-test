@@ -35,17 +35,22 @@ const config = {
   },
   plugins: [
     [
-      '@scalar/docusaurus',
+      "docusaurus-plugin-openapi-docs",
       {
-        label: 'Scalar',
-        route: '/scalar',
-        configuration: {
-          spec: {
-            url: 'https://raw.githubusercontent.com/tjperry07/coa_api_test/main/jobs_api_add_runStatus_runType_03_04_2024.json',
+        id: "openapi",
+        docsPluginId: "classic", // e.g. "classic" or the plugin-content-docs id
+        config: {
+          jobs: { // "petstore" is considered the <id> that you will reference in the CLI
+            specPath: 'static/api/jobs.json', // path or URL to the OpenAPI spec
+            outputDir: 'docs/api/jobs', // output directory for generated *.mdx and sidebar.js files
           },
-        },
-      }
-    ],
+          petstore:{
+            specPath: 'static/api/petstore.json',
+            outputDir: 'docs/api/petstore'
+          }
+        }
+      },
+    ]
 
   ],
   
@@ -60,6 +65,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          docItemComponent: "@theme/ApiItem" // add @theme/ApiItem here
         },
         blog: {
           showReadingTime: true,
@@ -75,7 +81,7 @@ const config = {
     ],
 
   ],
-  themes: ['docusaurus-theme-search-typesense'],
+  themes: ['docusaurus-theme-search-typesense', 'docusaurus-theme-openapi-docs'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -101,15 +107,15 @@ const config = {
             label: 'Docs',
           },
           {
+            to: '/docs/api/jobs/jobs-03-01-2024-01',
+            sidebarId: 'apiSidebar',
+            position: 'left',
+            label: 'API Test'
+          },
+          {
             to: '/releasenotes',
             label: 'Release Notes',
             position: 'left',
-          },
-          {
-            type: 'html',
-            value: 'Bounce',
-            position: 'right',
-            className: 'noticeable-widget'
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
