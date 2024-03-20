@@ -1,5 +1,5 @@
 {
-  "index_name": "API Test",
+  "index_name": "Doc Search Test",
   "start_urls": [
     {
       "url": "https://coalese-dev-docs-mvp.netlify.app/docs/api/jobs/cancelrun",
