@@ -1,0 +1,634 @@
+---
+id: startrun
+title: "Trigger Job to Run"
+description: "Querying this endpoint will initiate a new run to refresh your data warehouse based on your specified details."
+sidebar_label: "Trigger Job to Run"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNWFtT28gS/itd83ROlRCYpLZO6Y0QHtg92XAwVB4wlWpLbXvCaEaZC0br9X8/1SPJlkEEQ7a2Ni8xmumv75fplfA4dyK7Eb+aqRO3iSjI5VZWXhotMvG/QLaWeg5+IR2QLiojtYelVAqkll6iJ0DQtAQbNHgDlmaW3AJqEywU6BGWaGlhgiOYoqMCjG4OXUW5nEkqoCCPUrlUJMJUZJGZnxciE86j9TZokQhL3wM5/8EUtchWIjfak/b8E6tKyTwSHX5zLPZKuHxBJfIvX1ckMmGm3yj3LY60VLDONuiPDWvWvLLM3EtyTNc7G0DZtdLn+BlYJpS6MReBppycQ1uDRzsn36kJnQhsLhdyvjULStUQ1QXsbJg+Epf0vbRGl6T9+cenEu8eb4V23ko9fyL01YKgRwJTYsFb1lSIdSKkzlUo6HdTkBuTotwb+zJwvA4tbQEzYwE1YHGwMDl8M1NGpoe3I7e0A8gpQ38z033VP/8IZgbIpJ36QUeQCi0qRUq6sgcltac52SdYn/BBlqEEHcopWcbs6EFHkTkvGJkJZxiUF9nol0TMjC3RN8DvjpnvzNiczufaWPpi7J2rMKexRx/6UTg1RhHqJ2KcKGWWrnMhq4N6x8V0TxrkLEanQscRWSlTxzOjwS/Q79yfoVRUpHDtCJbSLyDHwLwAXVMQctRQBd/kc59Sam8id+a4NNYRB7enVKzX60QER/bUUkHaS9wnwx4RdKkWf2jKo1B575xDozvidDQw1mY5U3hHKZwGa0l7VYPRquaqJHPA4BfwL+ajsaTDCp1bGlv8G0qsYUrbapXC+QwWZkn3ZBPW8fMJk/YEWaCDKZEGch6nSnI6RYnY7nPJJunbalsHpYZt2Ul38jlhG0dZTCk9PLJHCuet+3J0lMCpQUUup6ZQc+ll1k8E9ab7q3Hv1kbicXFx3dF1a6GXM2yDBid5boL20NGmcNmVwOWCNGzAWcCruiKQDj6wWzgnNqcXrU/ewrrz5xtZ/0b1BUr7G9X7VZaLs08HpHPDZaqy8p7b5B3VbHH2RmTNEcf+49b1JEZ3pQyuayqtIDvE7Mm6ohR+p6WSmhyUwXFBh04EdDARk4meiOhoqSNW21LTIU3Z1vup2lm2080bKCi3deUjk572KVxx0ZCuybu2b09Vaw++PaAW399orYvHoBDnksiPil1VvnSDx2sCJjdlFTxtp5YdyEujXoXGeQqWifooXay9jPQ5/nBZE5Lw58YSfzbZ3O8oog3bddu/SvJk93DiaVdLt0TsxGmUPhYlNvll01VEr2vFYWsd//Gg4iqjXVMtjo+O+L9dPvwxeWlwowcsK9WgXJKLiq3EParAGqwmeuInPJudclaTnYgMRhO9FizC80Pfk9GuJR/s7a0IIhv1jHvU6fl+SLX3f4lqABNB1hrWKv65+TCOnpuIbMKsMjjjj/CJx8s5TUSyc7npH89eZhOuX2uyCLzntUbYobjbWHZAsDgVbsV/Pfl666HRkIdGf5+HRhlc61jYeAraljRKoFKEjguzC5aaucmbOx7LHNyjkkX6Q3f+JPI/xPc/pcUrA+UneW3DqqDKEhMWIpuhcpSIhwPnTaXkfBEDRfKT9V39EOb+P6PlH0fl9+ap40k7ruIiu1mJOx4hdiiTLsKGEda3iSjJLwyfVcZFy6NfiEwcsguLoMgexqfjZXwpO7L3sfDfrESwSmRi4X3lssNDrKo0b0dDZ2aee1wqzZOOcD3mDluircU6GQQh7S2q4FL8I1h6JSicMNEz0BT2QjsLHHwviInBsZgSD5xhz6Pzo3Se72eEk474BSbBHTDwwSjFpdvXEidfxnA9hjN0fi/YduBRUt+9gUUz3V80GP+V+u55nkty/uD4Dap8oR+p0oN9uyrMYkCVWw75PFjp6xjzHwgtWbjiVBbZzW3/wphrXlOvdq9tiggLLtriGB/b8VosmNwmLrdrqLOuyjxeFj1axGzr0vA+pV+3fnzerja2H3bWFO1G4dn9gbeBht/eA4+7LY+B59fAYf+B9Pxx86oYOO+N6gOnzdQ9cLAdpMXmzdYffTuSuMuamehm6SMY7zu/Hr37ejT6enx0/P5rnA+4bjZR90sa9zFcb0uM8dHa5crK+Zws/Gqm3FGakrsTsb3l5N+/P22j2NODP6wUSs1axJRctV3jRmy6Bpuy6xu3iVhwc8luxGrFjK6tWq/583fWgROJG5WV3EtjWiViQVjwEL1pa6eN4gfRJ5u+9nTW4jrRUJzkOVX+h3f7/e/i8/hKJGLaboFLUzCNxSWvSnEpMjERExH3yL5puavm+0oo1PPAk2L/4fJ/2i8gYQ==
+sidebar_class_name: "post api-method"
+info_path: docs/api/jobs/jobs-03-01-2024-01
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Trigger Job to Run"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/scheduler/startRun"}
+>
+  
+</MethodEndpoint>
+
+
+
+Querying this endpoint will initiate a new run to refresh your data warehouse based on your specified details.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  runDetails
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object
+                </span><span
+                  className={"openapi-schema__divider"}
+                >
+                  
+                </span><span
+                  className={"openapi-schema__required"}
+                >
+                  required
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <div
+                style={{"marginTop":".5rem","marginBottom":".5rem"}}
+              >
+                
+                
+                Object containing the necessary target details required to successfully start a refresh.
+                
+                
+              </div><SchemaItem
+                collapsible={false}
+                name={"environmentID"}
+                required={true}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"The environment being refreshed"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"includeNodesSelector"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"Nodes included for an ad-hoc job"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"excludeNodesSelector"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"Nodes excluded for an ad-hoc job."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"jobID"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"The ID of a job being run."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"parallelism"}
+                required={false}
+                schemaName={"int32"}
+                qualifierMessage={undefined}
+                schema={{"type":"integer","description":"Maximum number of parallel nodes to run.","default":16,"format":"int32"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"forceIgnoreWorkspaceStatus"}
+                required={false}
+                schemaName={"boolean"}
+                qualifierMessage={undefined}
+                schema={{"type":"boolean","description":"Allows refreshing an environment even if the last deployment on that environment failed. Use with caution as this can put your environment into an even worse state."}}
+              >
+                
+              </SchemaItem>
+            </div>
+          </details>
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  userCredentials
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <div
+                style={{"marginTop":".5rem","marginBottom":".5rem"}}
+              >
+                
+                
+                userCredentials contains connection credentials for connecting to Snowflake. Currently only basic auth (username/password) may be specified. If however, an OAuth connection has been established for the given environment specified in runDetails.environmentID, you may omit userCredentials. In that case, Coalesce will use the OAuth connection to connect with Snowflake.
+                
+                
+              </div><SchemaItem
+                collapsible={false}
+                name={"snowflakeUsername"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"Snowflake Account Username. Required when snowflakeAuthType is Basic"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"snowflakePassword"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"Snowflake Account password. Required when snowflakeAuthType is Basic"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"snowflakeKeyPairKey"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"The PEM-encoded private key to use when authenticating to Snowflake. Required when using the KeyPair authentication type. Newlines must be encoded as \"\\n\" within the request."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"snowflakeKeyPairPass"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"The password to use to decrypt the private key. This is only applicable when the authentication type is KeyPair and the private key is encrypted."}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"snowflakeWarehouse"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"Snowflake compute warehouse"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"snowflakeRole"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"Snowflake user role"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"snowflakeAuthType"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string","description":"Options: Basic | KeyPair | OAuth","default":"Basic"}}
+              >
+                
+              </SchemaItem>
+            </div>
+          </details>
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"parameters"}
+          required={false}
+          schemaName={"json"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","description":"Contains parameters to be used in the Refresh","format":"json"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          200
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"runCounter"}
+                        required={false}
+                        schemaName={"integer"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","example":1,"default":0}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"runCounter\": 1\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem><TabItem
+                  label={"Result"}
+                  value={"Result"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n\t\"runCounter\": 1\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          400
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"errorString"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"400: Error Message"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"errorDetail"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"400: Error Message"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": {\n    \"errorString\": \"400: Error Message\",\n    \"errorDetail\": \"400: Error Message\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem><TabItem
+                  label={"Result"}
+                  value={"Result"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\":{\n    \"errorString\":\"400: Error Message\",\n    \"errorDetail\":\"400: Error Message\"\n\t}\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          401
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                error
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"errorString"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"401: Unable to authenticate, please ensure your token is valid."}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"errorDetail"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"401: Unable to authenticate, please ensure your token is valid."}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\": {\n    \"errorString\": \"401: Unable to authenticate, please ensure your token is valid.\",\n    \"errorDetail\": \"401: Unable to authenticate, please ensure your token is valid.\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem><TabItem
+                  label={"Result"}
+                  value={"Result"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"error\":{\n    \"errorString\":\"401: Unable to authenticate, please ensure your token is valid.\",\n    \"errorDetail\":\"401: Unable to authenticate, please ensure your token is valid.\"\n\t}\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
