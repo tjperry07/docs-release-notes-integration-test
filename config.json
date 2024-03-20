@@ -1,16 +1,61 @@
 {
-    "index_name": "Docs Site Test Search",
-    "start_urls": [
-      "https://coalese-dev-docs-mvp.netlify.app"
-    ],
-    "sitemap_urls": [
-      "https://coalese-dev-docs-mvp.netlify.app/sitemap.xml"
-    ],
-    "sitemap_alternate_links": true,
-    "stop_urls": [
-      "/tests"
-    ],
-    "selectors": {
+  "index_name": "Doc Search Test",
+  "start_urls": [
+    {
+      "url": "https://coalese-dev-docs-mvp.netlify.app/docs/api/jobs/cancelrun",
+      "selectors_key": "api",
+      "tags": [
+        "api"
+      ]
+    },
+    {
+      "url": "https://coalese-dev-docs-mvp.netlify.app/docs/api/jobs/job-status",
+      "selectors_key": "api",
+      "tags": [
+        "api"
+      ]
+    },
+    {
+      "url": "https://coalese-dev-docs-mvp.netlify.app/docs/api/jobs/rerun-failed-refresh-job",
+      "selectors_key": "api",
+      "tags": [
+        "api"
+      ]
+    },
+    {
+      "url": "https://coalese-dev-docs-mvp.netlify.app/docs/api/jobs/startrun",
+      "selectors_key": "api",
+      "tags": [
+        "api"
+      ]
+    },
+    {
+     "url": "https://coalese-dev-docs-mvp.netlify.app/",
+     "selectors_key": "docs",
+     "tags": [
+      "docs"
+     ]
+    }
+  ],
+  "sitemap_urls": [
+    "https://coalese-dev-docs-mvp.netlify.app/sitemap.xml"
+  ],
+  "sitemap_alternate_links": true,
+  "stop_urls": [
+    "/releasenotes"
+  ],
+  "selectors": {
+    "api": {
+      "lvl0": {
+        "selector": ".navbar__items a.navbar__brand",
+        "global": true,
+        "default_value": "API"
+      },
+      "lvl1": "article h1",
+      "lvl2": "article .openapi__method-endpoint",
+      "lvl3": "article .openapi__divider + p"
+    },
+    "docs":{
       "lvl0": {
         "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
         "type": "xpath",
@@ -24,27 +69,31 @@
       "lvl5": "article h5, article td:first-child",
       "lvl6": "article h6",
       "text": "article p, article li, article td:last-child"
-    },
-    "strip_chars": " .,;:#",
-    "custom_settings": {
-      "separatorsToIndex": "_",
-      "attributesForFaceting": [
-        "language",
-        "version",
-        "type",
-        "docusaurus_tag"
-      ],
-      "attributesToRetrieve": [
-        "hierarchy",
-        "content",
-        "anchor",
-        "url",
-        "url_without_anchor",
-        "type"
-      ]
-    },
-    "conversation_id": [
-      "833762294"
+    }
+  },
+  "selectors_exclude": [
+    ".footer",
+    ".navbar",
+    ".docSidebarContainer_YfHR",
+    ".pagination-nav"
+  ],
+  "custom_settings": {
+    "attributesForFaceting": [
+      "language",
+      "version",
+      "type",
+      "docusaurus_tag"
     ],
-    "nb_hits": 46250
-  }
+    "attributesToRetrieve": [
+      "hierarchy",
+      "content",
+      "anchor",
+      "url",
+      "url_without_anchor",
+      "type"
+    ]
+  },
+  "strip_chars": " .,;:#",
+  "conversation_id": ["833762294"],
+  "nb_hits": 46250
+}

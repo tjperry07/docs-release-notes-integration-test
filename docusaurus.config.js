@@ -175,7 +175,7 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
       typesense:{
-        typesenseCollectionName: 'Docs Site Test Search',
+        typesenseCollectionName: 'Docs Search Test',
         typesenseServerConfig:{
           nodes:[
             {
