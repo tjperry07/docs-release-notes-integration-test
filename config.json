@@ -2,35 +2,35 @@
   "index_name": "Doc Search Test",
   "start_urls": [
     {
-      "url": "https://coalese-dev-docs-mvp.netlify.app/docs/api/jobs/cancelrun",
+      "url": "https://coalesce-dev-docs-mvp.netlify.app/docs/api/jobs/cancelrun",
       "selectors_key": "api",
       "tags": [
         "api"
       ]
     },
     {
-      "url": "https://coalese-dev-docs-mvp.netlify.app/docs/api/jobs/job-status",
+      "url": "https://coalesce-dev-docs-mvp.netlify.app/docs/api/jobs/job-status",
       "selectors_key": "api",
       "tags": [
         "api"
       ]
     },
     {
-      "url": "https://coalese-dev-docs-mvp.netlify.app/docs/api/jobs/rerun-failed-refresh-job",
+      "url": "https://coalesce-dev-docs-mvp.netlify.app/docs/api/jobs/rerun-failed-refresh-job",
       "selectors_key": "api",
       "tags": [
         "api"
       ]
     },
     {
-      "url": "https://coalese-dev-docs-mvp.netlify.app/docs/api/jobs/startrun",
+      "url": "https://coalesce-dev-docs-mvp.netlify.app/docs/api/jobs/startrun",
       "selectors_key": "api",
       "tags": [
         "api"
       ]
     },
     {
-     "url": "https://coalese-dev-docs-mvp.netlify.app/",
+     "url": "https://coalesce-dev-docs-mvp.netlify.app/",
      "selectors_key": "docs",
      "tags": [
       "docs"
@@ -38,7 +38,7 @@
     }
   ],
   "sitemap_urls": [
-    "https://coalese-dev-docs-mvp.netlify.app/sitemap.xml"
+    "https://coalesce-dev-docs-mvp.netlify.app/sitemap.xml"
   ],
   "sitemap_alternate_links": true,
   "stop_urls": [
