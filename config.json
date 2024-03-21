@@ -53,7 +53,7 @@
       },
       "lvl1": "article h1",
       "lvl2": "article .openapi__method-endpoint",
-      "lvl3": "article .openapi__divider + p"
+      "text": "article .openapi__divider + p"
     },
     "docs":{
       "lvl0": {
