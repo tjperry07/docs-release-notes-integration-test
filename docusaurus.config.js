@@ -205,6 +205,13 @@ const config = {
           src: '/js/noticeable.js'
         }
       },
+      {
+        tagName: 'script',
+        attributes:{
+          src: 'https://static.zdassets.com/ekr/snippet.js?key=4d200d7e-85d4-473e-a1ba-87b037556377',
+          id: 'ze-snippet'
+        }
+      },
     ],
 };
 
