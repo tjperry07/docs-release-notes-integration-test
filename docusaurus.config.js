@@ -21,7 +21,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'Coalesce', // Usually your GitHub org/user name.
-  projectName: 'Coalesce Product Documentation', // Usually your repo name.
+  projectName: 'Coalesce Algolia Test', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
