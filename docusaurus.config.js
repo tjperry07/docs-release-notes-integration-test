@@ -81,10 +81,18 @@ const config = {
     ],
 
   ],
-  themes: ['docusaurus-theme-search-typesense', 'docusaurus-theme-openapi-docs'],
+  themes: ['docusaurus-theme-openapi-docs'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia:{
+        appId: '4SWYKD9R8D',
+        apiKey: '2f8b2415d8e2064f58ba6a210d375205',
+        indexName: 'test_Docu',
+        contextualSearch: true,
+        externalUrlRegex: 'external\\.com|domain\\.com',
+
+      },
       metadata:[
         {
           name: 'docsearch:{$NAME}_tag',
