@@ -88,7 +88,7 @@ const config = {
       algolia:{
         appId: '4SWYKD9R8D',
         apiKey: '2f8b2415d8e2064f58ba6a210d375205',
-        indexName: 'test_Docu',
+        indexName: 'Doc Search Test',
         contextualSearch: true,
         externalUrlRegex: 'external\\.com|domain\\.com',
 
