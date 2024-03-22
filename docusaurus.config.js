@@ -21,7 +21,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'Coalesce', // Usually your GitHub org/user name.
-  projectName: 'Coalesce Product Documentation', // Usually your repo name.
+  projectName: 'Coalesce Algolia Test', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -81,10 +81,18 @@ const config = {
     ],
 
   ],
-  themes: ['docusaurus-theme-search-typesense', 'docusaurus-theme-openapi-docs'],
+  themes: ['docusaurus-theme-openapi-docs'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia:{
+        appId: '4SWYKD9R8D',
+        apiKey: '2f8b2415d8e2064f58ba6a210d375205',
+        indexName: 'Doc Search Test',
+        contextualSearch: true,
+        externalUrlRegex: 'external\\.com|domain\\.com',
+
+      },
       metadata:[
         {
           name: 'docsearch:{$NAME}_tag',
