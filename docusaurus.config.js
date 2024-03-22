@@ -205,6 +205,13 @@ const config = {
           src: '/js/noticeable.js'
         }
       },
+      {
+        tagName: 'meta',
+        attributes: {
+          name: 'zd-site-verification',
+          content: '8mafwlpqy4e173hpva6534'
+        }
+      }
     ],
 };
 
