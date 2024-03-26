@@ -209,7 +209,7 @@ const config = {
         tagName: 'meta',
         attributes: {
           name: 'zd-site-verification',
-          content: 'f91lp9mnkchmeclhhgpqik'
+          content: '33ltooz5whobdwgcjml71h'
         }
       }
     ],
